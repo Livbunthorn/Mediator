@@ -166,3 +166,4 @@ My pro-tip is use Caddy. Reverse proxies are a tried and tru technology.
 ### Why Caddy?
 
 I get asked a bit why Caddy? NGINX is great, but I find you need a PhD in NGINX to configure it. Caddy is lightweight and built from the ground up be more effective in cloud (k8s / OpenShift) deployments and has more human friendly config.
+# Mediator
