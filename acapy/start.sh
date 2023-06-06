@@ -2,8 +2,9 @@
 
 set -euxo pipefail
 
+MEDIATOR_URL=$(curl -s http://ngrok:4040/api/tunnels | jq -r '[.tunnels[] | select(.proto == "https")][0].public_url')
 
-echo "Starting agent with endpoint(s): ${http://138.48.246.9} wss://${MEDIATOR_URL#*://*}"
+echo "Starting agent with endpoint(s): ${MEDIATOR_URL} wss://${MEDIATOR_URL#*://*}"
 
 aca-py start \
     --auto-provision \
@@ -18,5 +19,4 @@ aca-py start \
     --wallet-storage-type postgres_storage \
     --admin 0.0.0.0 ${MEDIATOR_AGENT_HTTP_ADMIN_PORT} \
     --admin-api-key ${MEDIATOR_AGENT_ADMIN_API_KEY} \
-    --webhook-url ${MEDIATOR_CONTROLLER_WEBHOOK} \
     --endpoint ${MEDIATOR_URL} wss://${MEDIATOR_URL#*://*}
