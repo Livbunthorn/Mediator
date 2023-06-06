@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-MEDIATOR_URL=$(curl -s http://138.48.246.9:4040/api/tunnels | jq -r '[.tunnels[] | select(.proto == "https")][0].public_url')
+MEDIATOR_URL=$(http://138.48.246.9:4040)
 
 echo "Starting agent with endpoint(s): ${MEDIATOR_URL} wss://${MEDIATOR_URL#*://*}"
 
