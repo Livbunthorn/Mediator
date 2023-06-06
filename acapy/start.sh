@@ -2,9 +2,8 @@
 
 set -euxo pipefail
 
-MEDIATOR_URL="http://138.48.246.9"
 
-echo "Starting agent with endpoint(s): ${MEDIATOR_URL} wss://${MEDIATOR_URL#*://*}"
+echo "Starting agent with endpoint(s): ${http://138.48.246.9} wss://${MEDIATOR_URL#*://*}"
 
 aca-py start \
     --auto-provision \
